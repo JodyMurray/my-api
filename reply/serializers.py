@@ -20,6 +20,5 @@ class ReplySerializer(serializers.ModelSerializer):
         ]
 
 
-
 class ReplyDetailSerializer(ReplySerializer):
     post = serializers.ReadOnlyField(source='post.id')
