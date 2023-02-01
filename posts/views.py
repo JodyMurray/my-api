@@ -8,69 +8,16 @@ from .serializers import PostSerializer
 from my_api.permissions import IsOwnerOrReadOnly
 
 
-class PostsList(APIView):
+class PostsList(generics.ListCreateAPIView):
     serializer_class = PostSerializer
-    permission_classes = [
-        permissions.IsAuthenticatedOrReadOnly
-    ]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    queryset = Post.objects.all()
 
-    def get(self, request):
-        posts = Post.objects.all()
-        serializer = PostSerializer(
-            posts, many=True, context={'request': request}
-        )
-        return Response(serializer.data)
-
-    def post(self, request):
-        serializer = PostSerializer(
-            data=request.data, context={'request': request}
-        )
-        if serializer.is_valid():
-            serializer.save(owner=request.user)
-            return Response(
-                serializer.data, status=status.HTTP_201_CREATED
-            )
-        return Response(
-            serializer.errors, status=status.HTTP_400_BAD_REQUEST
-        )
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
 
 
-class PostsDetail(APIView):
+class PostsDetail(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = PostSerializer
     permission_classes = [IsOwnerOrReadOnly]
-    serializer_class = PostSerializer
-
-    def get_object(self, pk):
-        try:
-            post = Post.objects.get(pk=pk)
-            self.check_object_permissions(self.request, post)
-            return post
-        except Post.DoesNotExist:
-            raise Http404
-
-    def get(self, request, pk):
-        post = self.get_object(pk)
-        serializer = PostSerializer(
-            post, context={'request': request}
-        )
-        return Response(serializer.data)
-
-    def put(self, request, pk):
-        post = self.get_object(pk)
-        serializer = PostSerializer(
-            post,
-            data=request.data,
-            context={'request': request}
-        )
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(
-            serializer.errors, status=status.HTTP_400_BAD_REQUEST
-        )
-
-    def delete(self, request, pk):
-        post = self.get_object(pk)
-        post.delete()
-        return Response(
-            status=status.HTTP_204_NO_CONTENT
-        )
+    queryset = Post.objects.all()
