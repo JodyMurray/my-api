@@ -8,4 +8,6 @@ urlpatterns = [
     path('', include('posts.urls')),
     path('', include('reply.urls')),
     path('', include('votes.urls')),
+    path('', include('downvotes.urls')),
+
 ]
