@@ -11,7 +11,7 @@ class PostsList(generics.ListCreateAPIView):
     queryset = Post.objects.annotate(
         votes_count=Count('votes', distinct=True),
         downvotes_count=Count('downvotes', distinct=True),
-        reply_count=Count('replies', distinct=True)
+        reply_count=Count('replies', distinct=True),
     ).order_by('-created_at')
     filter_backends = [
         filters.OrderingFilter
@@ -31,4 +31,8 @@ class PostsList(generics.ListCreateAPIView):
 class PostsDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PostSerializer
     permission_classes = [IsOwnerOrReadOnly]
-    queryset = Post.objects.all()
+    queryset = Post.objects.annotate(
+        votes_count=Count('votes', distinct=True),
+        downvotes_count=Count('downvotes', distinct=True),
+        reply_count=Count('replies', distinct=True),
+    ).order_by('-created_at')
