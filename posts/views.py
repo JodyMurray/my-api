@@ -1,11 +1,7 @@
-from rest_framework import generics
-from django.http import Http404
-from rest_framework import status, permissions
-from rest_framework.response import Response
-from rest_framework.views import APIView
+from rest_framework import generics, permissions
+from my_api.permissions import IsOwnerOrReadOnly
 from .models import Post
 from .serializers import PostSerializer
-from my_api.permissions import IsOwnerOrReadOnly
 
 
 class PostsList(generics.ListCreateAPIView):
