@@ -11,10 +11,10 @@ class Reply(models.Model):
         Post, related_name='replies', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    likes = models.ManyToManyField(
-        User, related_name='likes', blank=True)
-    dislike = models.ManyToManyField(
-        User, related_name='dislike', blank=True)
+    upvote = models.ManyToManyField(
+        User, related_name='votes', blank=True)
+    downvote = models.ManyToManyField(
+        User, related_name='downvotes', blank=True)
 
     class Meta:
         ordering = ['-created_at']
