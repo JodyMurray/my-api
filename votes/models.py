@@ -4,7 +4,6 @@ from posts.models import Post
 
 
 class Vote(models.Model):
-   
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(
         Post, related_name='votes', on_delete=models.CASCADE
