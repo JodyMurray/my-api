@@ -2,6 +2,7 @@ from rest_framework import serializers
 from posts.models import Post
 from votes.models import Vote
 from downvotes.models import DownVote
+from saved.models import Saved
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -48,6 +49,15 @@ class PostSerializer(serializers.ModelSerializer):
             return downvote.id if downvote else None
         return None
 
+    def get_saved_id(self, obj):
+        user = self.context['request'].user
+        if user.is_authenticated:
+            saved = Saved.objects.filter(
+                owner=user, post=obj
+            ).first()
+            return saved.id if saved else None
+        return None
+
     class Meta:
         model = Post
         fields = [
@@ -55,4 +65,5 @@ class PostSerializer(serializers.ModelSerializer):
             'profile_image', 'created_at', 'updated_at',
             'title', 'content', 'image', 'image_filter',
             'vote_id', 'downvote_id', 'reply_count',
+            'saved_id', 'saved_count',
             ]
