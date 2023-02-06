@@ -12,6 +12,7 @@ class PostsList(generics.ListCreateAPIView):
         votes_count=Count('votes', distinct=True),
         downvotes_count=Count('downvotes', distinct=True),
         reply_count=Count('replies', distinct=True),
+        saved_count=Count('saved', distinct=True),
     ).order_by('-created_at')
     filter_backends = [
         filters.OrderingFilter
@@ -22,6 +23,7 @@ class PostsList(generics.ListCreateAPIView):
         'reply_count',
         'votes__created_at',
         'downvotes__created_at',
+        'saved_count',
     ]
 
     def perform_create(self, serializer):
@@ -35,4 +37,5 @@ class PostsDetail(generics.RetrieveUpdateDestroyAPIView):
         votes_count=Count('votes', distinct=True),
         downvotes_count=Count('downvotes', distinct=True),
         reply_count=Count('replies', distinct=True),
+        saved_count=Count('saved', distinct=True),
     ).order_by('-created_at')
