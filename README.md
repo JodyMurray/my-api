@@ -1,4 +1,4 @@
-# **PetFriends - API **
+# **PetFriends - API**
 
 This is a content sharing platform for your pets, any pet can sign up! 
 The site includes registration and sign up, adding posts, comments, follow or unfollow a user, vote or downvote a post, save a post for future viewing.
@@ -31,32 +31,32 @@ Test Account:
 ------------------------------------------------------------------------------------------------------------
 
 
-## Database Schema - Entity Relationship Diagram
+## **Database Schema**
 
 IMAGE
 
-## User Stories
+## **User Stories**
 
-## Testing
+## **Testing**
 
 ### Validators
 
 ### Manual Testing
 
-## Technologies Used
+## **Technologies Used**
 
 ### Languages
 
 ### Libraries, Frameworks & Programs
 
-## Bugs
+## **Bugs**
 ### Solved
 ### Unresolved
 
-## Project Setup
+## **Project Setup**
 
-## Deployment
+## **Deployment**
 
-## Credits
-## Media
-## Content
+## **Credits**
+## **Media**
+## **Content**
