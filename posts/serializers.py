@@ -15,6 +15,8 @@ class PostSerializer(serializers.ModelSerializer):
     reply_count = serializers.ReadOnlyField()
     saved_id = serializers.SerializerMethodField()
     saved_count = serializers.ReadOnlyField()
+    votes_count = serializers.ReadOnlyField()
+    downvotes_count = serializers.ReadOnlyField()
 
     def validate_image(self, value):
         if value.size > 2 * 1024 * 1024:
@@ -67,5 +69,5 @@ class PostSerializer(serializers.ModelSerializer):
             'profile_image', 'created_at', 'updated_at',
             'title', 'content', 'image', 'image_filter',
             'vote_id', 'downvote_id', 'reply_count',
-            'saved_id', 'saved_count',
+            'saved_id', 'saved_count', 'votes_count', 'downvotes_count',
         ]
