@@ -78,8 +78,28 @@ IMAGE
 
 ## **Project Setup**
 
+* Create a new repository using the Code Institute template repository.
+* Run the command pip3 install 'django<4' in the terminal to install Django.
+* Run the command django-admin startproject my_api . in the terminal.
+* Run the command pip install django-cloudinary-storage in the terminal to install Cloudinary Storage.
+* Run the command pip install Pillow - this library adds image processing capabilities we need for this project.
+* Once these dependencies are installed we need to add them into the "Installed apps" section in settings.py.
+    * Note the placement and terms used for this input into installed apps:
+
+    <br>
+
+    ![screenshot](documentation/cloudinary.png)
+
+* Create env.py file in the top directory.
+
+
 ## **Deployment**
 
 ## **Credits**
+
+- The DRF API walkthrough was used as a guide for this API, it served as a major help in creating this API.
+- My mentor at Code Institute - Martina Terlevic.
+- Keiron Chaudhry, a fellow student and great support!
+
 ## **Media**
 ## **Content**
