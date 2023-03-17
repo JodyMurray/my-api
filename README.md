@@ -184,13 +184,178 @@ First step of deployment is setting up the JWT tokens:
     *from rest_framework import serializers*
 
 * Next create the profile_id and profile_image fields:
-    ````
+    ```
     class CurrentUserSerializer(UserDetailsSerializer):
         profile_id = serializers.ReadOnlyField(source='profile.id')
         profile_image = serializers.ReadOnlyField(source='profile.image.url')
         class Meta(UserDetailsSerializer.Meta):
             fields = UserDetailsSerializer.Meta.fields + ('profile_id', 'profile_image')
-```
+    ```
+
+
+* Overwrite the default USER_DETAILS_SERIALIZER Place below the JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token':
+
+    *REST_AUTH_SERIALIZERS = {'USER_DETAILS_SERIALIZER': 'drf_api.serializers.CurrentUserSerializer'}*
+
+* Next, in the terminal command window:
+    *1: Run migrations*
+
+        python manage.py migrate
+
+    *2: Update the requirements text file:*
+        
+        pip freeze > requirements.txt
+
+    *2: git add, commit and push.*
+
+
+### Adding the root route:
+* Create a views.py file in the api folder.
+
+* Set up the imports in the views.py file:
+
+    *from rest_framework.decorators import api_view*
+
+    *from rest_framework.response import Response*
+
+* Create root route and return custom message:
+
+    ```
+    @api_view()
+    def root_route(request):
+        return Response({"message": "Welcome to my API!"})
+    ```
+* In the urls.py file, import:
+
+    *from .views import root_route*
+
+* Add the url to urlpatterns list:
+
+    ```
+    urlpatterns = [
+    path('', root_route)
+    ]
+    ```
+
+### Adding JSON Renderer
+
+* In the settings.py file, add Pagination:
+
+    ```
+    REST_FRAMEWORK = {
+    ...,
+    'DEFAULT_PAGINATION_CLASS':  'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
+    }
+    ```
+
+### Adding Pagination
+
+* In the settings.py file, set JSON Renderer if Dev environment is not present. Placed below, but separate to, the REST_FRAMEWORK list:
+
+    ```
+    REST_FRAMEWORK = {
+    ...
+    }
+
+    if 'DEV' not in os.environ:
+        REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = [
+            'restframework.renderers.JSONRenderer'
+        ]
+    ```
+
+### Date and time formatting - General Formatting:
+
+* In the settings.py file, format Date and time in REST_FRAMEWORK list:
+
+    ```
+    REST_FRAMEWORK = {
+    ...
+    'DATETIME_FORMAT': '%d %b %Y'
+    }
+    ```
+
+### Date and time formatting - Comments and Post:
+
+* In the reply app, create the serializers.py app.
+
+* Set the imports up in the serializers.py file:
+    
+    *from django.contrib.humanize.templatetags.humanize import naturaltime*
+
+* Set fields within the ReplySerializer class:
+
+    *created_at = serializers.SerializerMethodField()*
+
+    *updated_at = serializers.SerializerMethodField()*
+
+* Set methods, which are placed underneath fields:
+
+    ```
+    def get_created_at(self, obj):
+        return naturaltime(obj.created_at)
+    
+    def get_updated_at(self, obj):
+        return naturaltime(obj.updated_at)
+    ```
+* Next add, commit and push the new additions.
+
+### Create Heroku App with Heroku PostGres
+
+* Log into Heroku, and create a new app. (The name must be unique)
+
+* Log in to your ElephantSQL account, and click "create new instance".
+
+* Set up your plan:
+    * Give your plan a Name (this is commonly the name of the project)
+    * Select the Tiny Turtle (Free) plan
+    * You can leave the Tags field blank
+
+* Click “Select Region”, then click “Review” and then click "Create instance".
+
+* Go back to the ElephantSQL dashboard and click on the database instance name for this project.
+
+* Copy your ElephantSQL database URL using the Copy icon. It will start with postgres://
+
+### In heroku.com
+
+* Open your App in Heroku, go to the settings tab and click "Reveal config vars".
+
+* Add a Config Var called DATABASE_URL: The value should be the ElephantSQL database url.
+
+### Install and configure extra libraries, connect to your database:
+
+* Install dj_database_url by typing in the command terminal window:
+
+    *pip install dj_database_url*
+
+* In the settings.py file, import the following:
+
+    *import dj_database_url*
+
+* Separate the Dev and Prod Environments, as follows:
+
+    ```
+    DATABASES = {
+    'default': ({
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    } if 'DEV' in os.environ else dj_database_url.parse(
+        os.environ.get('DATABASE_URL')
+    ))
+    }
+    ```
+
+* Next, install gunicorn. By typing in the command terminal:
+
+    *pip install gunicorn*
+
+* Create Procfile (noting the capital "P"). Inside the file add:
+    
+    *release: python manage.py makemigrations && python manage.py migrate*
+
+    *web: gunicorn drf_api.wsgi*
+
 
 
 
