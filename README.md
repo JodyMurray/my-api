@@ -91,6 +91,10 @@ IMAGE
     ![screenshot](documentation/cloudinary.png)
 
 * Create env.py file in the top directory.
+    * Inside the env.py file, import the os module and set up the os.environ with the cloudinary URL you can retrieve from the account you've set up.
+* In the settings.py file, set up a variable called "CLOUDINARY_STORAGE" and use the environment variable used to set up in the env.py file to declare this value.
+* Next, define the setting called "MEDIA_URL" and set it to "/media/" so the settings know where to store our image files.
+* Finally, define a variable called "DEFAULT_FILE_STORAGE" and set it to "MediaCloudinaryStorage".
 
 
 ## **Deployment**
