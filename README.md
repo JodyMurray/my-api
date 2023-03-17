@@ -136,7 +136,62 @@ First step of deployment is setting up the JWT tokens:
 * Add SITE_ID value, which is placed under INSTALLED APPS List:
     *SITE_ID = 1*
 
-    
+
+* Next add the registration urls to the urlpatterns list, as follows:
+    *path('dj-rest-auth/registration/',* 
+
+    *include('dj_rest_auth.registration.urls')),*
+
+* Now add JWT tokens functionality: 
+    * Install the djangorestframework-simplejwt package by typing the following into the terminal command window:
+        *pip install djangorestframework-simplejwt==4.7.2*
+
+* In the env.py file, create a session authentication value (differentiates between Dev and Prod mode):
+    *os.environ['DEV'] = '1'*
+
+* In the settings.py file, use the Dev value above to differentiate between Dev and Prod Modes & add pagination which is placed under SITE_ID:
+
+    ```REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [( 
+        'rest_framework.authentication.SessionAuthentication' 
+        if 'DEV' in os.environ 
+        else 'dj_rest_auth.jwt_auth.JWTCookieAuthentication'
+    )]
+    }
+    ```
+* To enable token authentication, put the following under the above step:
+
+    *REST_USE_JWT = True*
+
+* To ensure tokens sent over HTTPS only, add the following:
+
+    *JWT_AUTH_COOKIE = 'my-app-auth'*
+
+* Next, declare cookie names for the access and refresh tokens by adding:
+    ```
+    JWT_AUTH_SECURE = True
+    JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
+    ```
+
+* Create a new serializers.py file in the api folder.
+
+* Import the following files at the top of the new serializers file:
+
+    *from dj_rest_auth.serializers*
+
+    *import UserDetailsSerializer*
+
+    *from rest_framework import serializers*
+
+* Next create the profile_id and profile_image fields:
+    ````
+    class CurrentUserSerializer(UserDetailsSerializer):
+        profile_id = serializers.ReadOnlyField(source='profile.id')
+        profile_image = serializers.ReadOnlyField(source='profile.image.url')
+        class Meta(UserDetailsSerializer.Meta):
+            fields = UserDetailsSerializer.Meta.fields + ('profile_id', 'profile_image')
+```
+
 
 
 
