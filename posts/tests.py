@@ -26,3 +26,19 @@ class PostsListViewTests(APITestCase):
     def test_user_not_logged_in_cant_create_post(self):
         response = self.client.post('/posts/', {'title': 'a title'})
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+
+class PostDetailViewTests(APITestCase):
+    def setUp(self):
+        jody = User.objects.create_user(username='jody', password='pass')
+        ciara = User.objects.create_user(username='ciara', password='pass')
+
+        Post.objects.create(
+            owner=jody, title='a title', content='some content'
+        )
+
+    def test_can_retrieve_post_using_valid_id(self):
+        response = self.client.get('/posts/1/')
+        self.assertEqual(response.data['title'], 'a title')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
