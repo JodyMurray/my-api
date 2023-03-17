@@ -59,7 +59,18 @@ IMAGE
 
 ### Languages
 
+- Python
+- Django
+- Django Rest Framework
+
 ### Libraries, Frameworks & Programs
+
+- Cloudinary Storage
+- Django rest auth
+- Postgre SQL
+- Pillow 
+- Django rest framework
+- QuickBaseDiagrams (for the database schema diagram)
 
 ## **Bugs**
 ### Solved
