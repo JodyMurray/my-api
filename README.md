@@ -99,6 +99,48 @@ IMAGE
 
 ## **Deployment**
 
+First step of deployment is setting up the JWT tokens:
+* Firstly install the package in the terminal window, using the command: 
+    
+    *pip install dj-rest-auth==2.1.9*
+* In the settings.py file add the following to the "Installed Apps" section.
+
+    *'rest_framework.authtoken',*
+
+    *'dj_rest_auth',*
+
+* Next, add the following urls to the urlpatterns list:
+
+    *path('dj-rest-auth/', include('dj_rest_auth.urls')),*
+
+* In the command terminal, migrate the database just added by typing:
+
+    *python manage.py migrate*
+
+* Next we want to add the feature to enable registration of users. Type the following into the terminal:
+
+    *pip install 'dj-rest-auth[with_social]'*
+
+* Add the following into the "Installed Apps" section in the settings.py file:
+
+    *'django.contrib.sites',*
+
+    *'allauth',*
+
+    *'allauth.account',*
+
+    *'allauth.socialaccount',*
+
+    *'dj_rest_auth.registration',*
+
+* Add SITE_ID value, which is placed under INSTALLED APPS List:
+    *SITE_ID = 1*
+
+    
+
+
+
+
 ## **Credits**
 
 - The DRF API walkthrough was used as a guide for this API, it served as a major help in creating this API.
