@@ -6,10 +6,19 @@ This project is the last of five projects that needs to be completed in order to
 
 A live version of this API will be found here: https://petfriends-api.herokuapp.com/
 
+* Deployed FrontEnd - https://pet-friends.herokuapp.com/
+
+* Deployed BackEnd API - https://petfriends-api.herokuapp.com/
+
+* BackEnd Repo - https://github.com/JodyMurray/my-api.git
+
+* FrontEnd Repo - https://github.com/JodyMurray/petfriends.git
+
 
 Test Account:
 
 ## **Table of Contents** ##
+
 * [Database Schema](#database-schema)
 * [User Stories](#user-stories)
 * [Testing](#testing)
@@ -24,8 +33,9 @@ Test Account:
 * [Project Setup](#project-setup)
 * [Deployment](#deployment)
 * [Credits](#credits)
-* [Media](#media)
-* [content](#content)
+    * [Media](#media)
+    * [Content](#content)
+    * [Sources](#sources)
 
 
 ------------------------------------------------------------------------------------------------------------
@@ -36,6 +46,8 @@ Test Account:
 IMAGE
 
 ## **User Stories**
+
+[User Stories](https://github.com/users/JodyMurray/projects/11/views/1)
 
 ## **Testing**
 
