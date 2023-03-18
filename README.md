@@ -358,10 +358,80 @@ First step of deployment is setting up the JWT tokens:
 
     *web: gunicorn drf_api.wsgi*
 
+* In the settings.py, set the "ALLOWED_HOSTS" to:
 
+    *['<YOURAPPNAME>.herokuapp.com', 'localhost']*
 
+* In the command terminal, install CORS, by typing:
+    *pip install django-cors-headers*
 
+* Then add to "INSTALLED_APPS" section in settings.py:
 
+    ``` 
+    INSTALLED_APPS = [
+    ...
+    'dj_rest_auth.registration',
+    'corsheaders',
+
+    'profiles',
+    ...
+    ]
+    ```
+* Add to MIDDLEWARE  list: (place at the top of the MIDDLEWARE list)
+
+    ```
+    MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    ...
+    ]
+    ```
+
+* Set the ALLOWED_ORIGINS for the network requests made to the server: (placed under MIDDLEWARE_LIST)
+
+    ```
+    if 'CLIENT_ORIGIN' in os.environ:
+        CORS_ALLOWED_ORIGINS = [
+            os.environ.get('CLIENT_ORIGIN')
+    ]
+    else:
+        CORS_ALLOWED_ORIGIN_REGEXES = [
+            r"^https://.*\.gitpod\.io$",
+    ]
+
+    ```
+
+* Allow Cookies and allow front end app and api be deployed to different platforms:
+
+    *CORS_ALLOW_CREDENTIALS = True*
+    *JWT_AUTH_SAMESITE = 'None'*
+
+* Set the remaining env variables:
+
+    *os.environ['SECRET_KEY'] = 'CreateRandomValue'*
+
+* In the settings.py file - replace the ‘insecure’ key with the environment variable:
+
+    *SECRET_KEY = os.environ.get('SECRET_KEY')*
+
+* Replace the DEBUG Setting to be only true in Dev and False in Prod Modes:
+
+    *DEBUG = 'DEV' in os.environ*
+
+* In Heroku - Add your config vars i.e. copy and paste values from env.py into Heroku Config Vars, and add the DISABLE_COLLECTSTATIC var:
+
+    *CLOUDINARY_URL, SECRET_KEY*
+
+    *DISABLE_COLLECTSTATIC = 1*
+
+* Back in GitHub in the command terminal - Update the requirements file, then add, commit and push the changes.
+
+    *pip freeze > requirements.txt*
+
+### Final steps
+
+* Back in Heroku in the deploy tab: Select the Deployment Method (GitHub), select the project repository name from Github, and connect. Next in the Manual deploy section, choose the Master Branch, then click Deploy Branch.
+
+* Once Complete, click "Open App" to view.
 
 ## **Credits**
 
