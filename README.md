@@ -86,9 +86,11 @@ IMAGE
 * Once these dependencies are installed we need to add them into the "Installed apps" section in settings.py.
     * Note the placement and terms used for this input into installed apps:
 
-    <br>
-
-    ![screenshot](documentation/cloudinary.png)
+        ```
+        'cloudinary_storage',
+        'django.contrib.staticfiles',
+        'cloudinary',
+        ```
 
 * Create env.py file in the top directory.
     * Inside the env.py file, import the os module and set up the os.environ with the cloudinary URL you can retrieve from the account you've set up.
