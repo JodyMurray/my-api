@@ -22,13 +22,13 @@ Test Account:
 * [Database Schema](#database-schema)
 * [User Stories](#user-stories)
 * [Testing](#testing)
+    * [Unit Testing](#unit-testing)
     * [Validators](#validators)
     * [Manual Testing](#manual-testing)
 * [Technologies Used](#technologies-used)
     * [Languages](#languages)
     * [Libraries, Frameworks & Programs](#libraries-frameworks-&-programs)
 * [Bugs](#bugs)
-    * [Solved](#solved)
     * [Unresolved](#unresolved)
 * [Project Setup](#project-setup)
 * [Deployment](#deployment)
@@ -53,7 +53,33 @@ IMAGE
 
 ### Validators
 
+- All code passes through the built-in package, similar to PEP8 checker, and was continuously checked through out production of this API.
+
+### Unit Testing
+#### Posts List View testing:
+- These tests were possible thanks to the guide of the Moments walkthrough.
+
+![screenshot](documentation/PostsListView.png)
+![screenshot](documentation/PostsListView2.png)
+
+- All tests passed by using the command:
+ 
+    *python manage.py test*
+
+#### Posts Detail View testing:
+- These tests were possible thanks to the guide of the Moments walkthrough.
+
+![screenshot](documentation/PostDetailView.png)
+![screenshot](documentation/PostDetailView2.png)
+
+- All tests passed by using the command:
+ 
+    *python manage.py test*
+
 ### Manual Testing
+
+#### Testing CRUD throughout the apps:
+
 
 ## **Technologies Used**
 
@@ -71,10 +97,12 @@ IMAGE
 - Pillow 
 - Django rest framework
 - QuickBaseDiagrams (for the database schema diagram)
+- Django Cors Headers
 
 ## **Bugs**
-### Solved
 ### Unresolved
+
+- As I used the very helpful Code Institute walkthrough as a guide and had fellow student's posts on the Slack forum, any issue I came across was quickly resolved. And nothing major to report or that still exists.
 
 ## **Project Setup**
 
