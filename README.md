@@ -125,30 +125,32 @@ First step of deployment is setting up the JWT tokens:
 
 * Add the following into the "Installed Apps" section in the settings.py file:
 
-    *'django.contrib.sites',*
-
-    *'allauth',*
-
-    *'allauth.account',*
-
-    *'allauth.socialaccount',*
-
-    *'dj_rest_auth.registration',*
+    ```
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'dj_rest_auth.registration',
+    ```
 
 * Add SITE_ID value, which is placed under INSTALLED APPS List:
+
     *SITE_ID = 1*
 
 
 * Next add the registration urls to the urlpatterns list, as follows:
+
     *path('dj-rest-auth/registration/',* 
 
     *include('dj_rest_auth.registration.urls')),*
 
 * Now add JWT tokens functionality: 
     * Install the djangorestframework-simplejwt package by typing the following into the terminal command window:
+
         *pip install djangorestframework-simplejwt==4.7.2*
 
 * In the env.py file, create a session authentication value (differentiates between Dev and Prod mode):
+
     *os.environ['DEV'] = '1'*
 
 * In the settings.py file, use the Dev value above to differentiate between Dev and Prod Modes & add pagination which is placed under SITE_ID:
@@ -175,9 +177,7 @@ First step of deployment is setting up the JWT tokens:
     JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
     ```
 
-* Create a new serializers.py file in the api folder.
-
-* Import the following files at the top of the new serializers file:
+* Create a new serializers.py file in the api folder. Then import the following files at the top of the new serializers file:
 
     *from dj_rest_auth.serializers*
 
@@ -195,11 +195,12 @@ First step of deployment is setting up the JWT tokens:
     ```
 
 
-* Overwrite the default USER_DETAILS_SERIALIZER Place below the JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token':
+* Overwrite the default USER_DETAILS_SERIALIZER - Place below the JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token':
 
     *REST_AUTH_SERIALIZERS = {'USER_DETAILS_SERIALIZER': 'drf_api.serializers.CurrentUserSerializer'}*
 
 * Next, in the terminal command window:
+
     *1: Run migrations*
 
         python manage.py migrate
@@ -208,13 +209,11 @@ First step of deployment is setting up the JWT tokens:
         
         pip freeze > requirements.txt
 
-    *2: git add, commit and push.*
+    *3: git add, commit and push.*
 
 
 ### Adding the root route:
-* Create a views.py file in the api folder.
-
-* Set up the imports in the views.py file:
+* Create a views.py file in the api folder. Set up the imports in the views.py file:
 
     *from rest_framework.decorators import api_view*
 
@@ -279,9 +278,7 @@ First step of deployment is setting up the JWT tokens:
 
 ### Date and time formatting - Comments and Post:
 
-* In the reply app, create the serializers.py app.
-
-* Set the imports up in the serializers.py file:
+* In the reply app, create the serializers.py app. Then set the imports up in the file:
     
     *from django.contrib.humanize.templatetags.humanize import naturaltime*
 
@@ -312,6 +309,7 @@ First step of deployment is setting up the JWT tokens:
     * Give your plan a Name (this is commonly the name of the project)
     * Select the Tiny Turtle (Free) plan
     * You can leave the Tags field blank
+
 
 * Click “Select Region”, then click “Review” and then click "Create instance".
 
