@@ -33,9 +33,9 @@ Test Account:
 * [Project Setup](#project-setup)
 * [Deployment](#deployment)
 * [Credits](#credits)
+    * [Credits](#credits)
+    * [Acknowledgments](#acknowledgments)
     * [Media](#media)
-    * [Content](#content)
-    * [Sources](#sources)
 
 
 ------------------------------------------------------------------------------------------------------------
@@ -470,11 +470,20 @@ First step of deployment is setting up the JWT tokens:
 
 ## **Credits**
 
-- The DRF API walkthrough was used as a guide for this API, it served as a major help in creating this API.
+### **Credits**
+
+- The DRF API walkthrough from Code Institue was used as a guide for this project, 
+it served as a major help in creating this API.
+- [YouTube](https://www.youtube.com/)
+- [Stack Overflow](https://stackoverflow.com/)
+- [GeeksForGeeks](https://www.geeksforgeeks.org/)
+- [Slack](https://www.slack.com/) - for helpful tips from fellow students!
+
+
+### **Acknowledgments**
 - My mentor at Code Institute - Martina Terlevic.
 - Keiron Chaudhry, a fellow student and great support!
 
-## **Media**
+### **Media**
 - The media for this API consists of the default images, sourced through google and uploaded on Cloudinary.
 
-## **Content**
