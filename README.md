@@ -47,7 +47,8 @@ IMAGE
 
 ## **User Stories**
 
-[User Stories](https://github.com/users/JodyMurray/projects/11/views/1)
+- The user stories for the creation of this API can be found here: [User Stories: Backend](https://github.com/users/JodyMurray/projects/11/views/1)
+- The user stories for the Frontend can be found here: [User Stories: Frontend](https://github.com/users/JodyMurray/projects/11/views/2)
 
 ## **Testing**
 
