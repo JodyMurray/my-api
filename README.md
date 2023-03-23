@@ -80,6 +80,15 @@ IMAGE
 
 #### Testing CRUD throughout the apps:
 
+| App | Create | Read | Update | Delete |
+|---|---|---|---|---|
+| Posts | ✅ | ✅ | ✅ | ✅ |
+| Profiles | n/a | ✅ | ✅ | n/a |
+| Reply | ✅ | ✅ | ✅ | ✅ |
+| Followers | ✅ | ✅ | n/a | ✅ |
+| Votes | ✅ | ✅ | n/a | ✅ |
+| Downvotes | ✅ | ✅ | n/a | ✅ |
+
 
 ## **Technologies Used**
 
