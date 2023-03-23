@@ -91,6 +91,27 @@ IMAGE
 | Downvotes | ✅ | ✅ | n/a | ✅ |
 
 
+#### **Testing URLs**
+
+| **URL** | **Passed** |
+| --- | --- |
+| root | ✅ |
+| /profiles/ | ✅ |
+| /profiles/:id/ | ✅ |
+| /post/ | ✅ |
+| /post/:id/ | ✅ |
+| /post/create/ | ✅ |
+| /reply/ | ✅ |
+| /reply/:id | ✅ |
+| /followers/ | ✅ |
+| /followers/:id/ | ✅ |
+| /saved/ | ✅ |
+| /saved/:id/ | ✅ |
+| /vote/ | ✅ |
+| /vote/:id/ | ✅ |
+| /downvote/ | ✅ |
+| /downvote/:id/ | ✅ |
+
 ## **Technologies Used**
 
 ### **Languages**
