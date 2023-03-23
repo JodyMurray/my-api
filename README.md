@@ -51,12 +51,12 @@ IMAGE
 
 ## **Testing**
 
-### Validators
+### **Validators**
 
 - All code passes through the built-in package, similar to PEP8 checker, and was continuously checked through out production of this API.
 
-### Unit Testing
-#### Posts List View testing:
+### **Unit Testing**
+#### **Posts List View testing:**
 - These tests were possible thanks to the guide of the Moments walkthrough.
 
 ![screenshot](documentation/PostsListView.png)
@@ -66,7 +66,7 @@ IMAGE
  
     *python manage.py test*
 
-#### Posts Detail View testing:
+#### **Posts Detail View testing:**
 - These tests were possible thanks to the guide of the Moments walkthrough.
 
 ![screenshot](documentation/PostDetailView.png)
@@ -76,9 +76,9 @@ IMAGE
  
     *python manage.py test*
 
-### Manual Testing
+### **Manual Testing**
 
-#### Testing CRUD throughout the apps:
+#### **Testing CRUD throughout the apps:**
 
 | App | Create | Read | Update | Delete |
 |---|---|---|---|---|
@@ -92,13 +92,13 @@ IMAGE
 
 ## **Technologies Used**
 
-### Languages
+### **Languages**
 
 - Python
 - Django
 - Django Rest Framework
 
-### Libraries, Frameworks & Programs
+### **Libraries, Frameworks & Programs**
 
 - Cloudinary Storage
 - Django rest auth
@@ -109,7 +109,7 @@ IMAGE
 - Django Cors Headers
 
 ## **Bugs**
-### Unresolved
+### **Unresolved**
 
 - As I used the very helpful Code Institute walkthrough as a guide and had fellow student's posts on the Slack forum, any issue I came across was quickly resolved. And nothing major to report or that still exists.
 
@@ -249,7 +249,7 @@ First step of deployment is setting up the JWT tokens:
     *3: git add, commit and push.*
 
 
-### Adding the root route:
+### **Adding the root route:**
 * Create a views.py file in the api folder. Set up the imports in the views.py file:
 
     *from rest_framework.decorators import api_view*
@@ -275,7 +275,7 @@ First step of deployment is setting up the JWT tokens:
     ]
     ```
 
-### Adding JSON Renderer
+### **Adding JSON Renderer**
 
 * In the settings.py file, add Pagination:
 
@@ -287,7 +287,7 @@ First step of deployment is setting up the JWT tokens:
     }
     ```
 
-### Adding Pagination
+### **Adding Pagination**
 
 * In the settings.py file, set JSON Renderer if Dev environment is not present. Placed below, but separate to, the REST_FRAMEWORK list:
 
@@ -302,7 +302,7 @@ First step of deployment is setting up the JWT tokens:
         ]
     ```
 
-### Date and time formatting - General Formatting:
+### **Date and time formatting - General Formatting:**
 
 * In the settings.py file, format Date and time in REST_FRAMEWORK list:
 
@@ -313,7 +313,7 @@ First step of deployment is setting up the JWT tokens:
     }
     ```
 
-### Date and time formatting - Comments and Post:
+### **Date and time formatting - Comments and Post:**
 
 * In the reply app, create the serializers.py app. Then set the imports up in the file:
     
@@ -336,7 +336,7 @@ First step of deployment is setting up the JWT tokens:
     ```
 * Next add, commit and push the new additions.
 
-### Create Heroku App with Heroku PostGres
+### **Create Heroku App with Heroku PostGres**
 
 * Log into Heroku, and create a new app. (The name must be unique)
 
@@ -354,13 +354,13 @@ First step of deployment is setting up the JWT tokens:
 
 * Copy your ElephantSQL database URL using the Copy icon. It will start with postgres://
 
-### In heroku.com
+### **In heroku.com**
 
 * Open your App in Heroku, go to the settings tab and click "Reveal config vars".
 
 * Add a Config Var called DATABASE_URL: The value should be the ElephantSQL database url.
 
-### Install and configure extra libraries, connect to your database:
+### **Install and configure extra libraries, connect to your database:**
 
 * Install dj_database_url by typing in the command terminal window:
 
@@ -462,7 +462,7 @@ First step of deployment is setting up the JWT tokens:
 
     *pip freeze > requirements.txt*
 
-### Final steps
+### **Final steps**
 
 * Back in Heroku in the deploy tab: Select the Deployment Method (GitHub), select the project repository name from Github, and connect. Next in the Manual deploy section, choose the Master Branch, then click Deploy Branch.
 
@@ -475,4 +475,6 @@ First step of deployment is setting up the JWT tokens:
 - Keiron Chaudhry, a fellow student and great support!
 
 ## **Media**
+- The media for this API consists of the default images, sourced through google and uploaded on Cloudinary.
+
 ## **Content**
