@@ -27,7 +27,7 @@ Test Account:
     * [Manual Testing](#manual-testing)
 * [Technologies Used](#technologies-used)
     * [Languages](#languages)
-    * [Libraries, Frameworks & Programs](#libraries-frameworks-&-programs)
+    * [Libraries, Frameworks and Programs](#libraries-frameworks-and-programs)
 * [Bugs](#bugs)
     * [Unresolved](#unresolved)
 * [Project Setup](#project-setup)
@@ -120,7 +120,7 @@ IMAGE
 - Django
 - Django Rest Framework
 
-### **Libraries, Frameworks & Programs**
+### **Libraries, Frameworks and Programs**
 
 - Cloudinary Storage
 - Django rest auth
