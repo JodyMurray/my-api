@@ -1,8 +1,10 @@
 # **PetFriends - API**
 
-This is a content sharing platform for your pets, any pet can sign up! 
-The site includes registration and sign up, adding posts, comments, follow or unfollow a user, vote or downvote a post, save a post for future viewing.
-This project is the last of five projects that needs to be completed in order to receive a diploma in Software Development from The Code Institute.
+This is a content-sharing platform for your pets, any pet can sign up! 
+The site includes registration and sign-up, you can add posts, reply to posts, follow or unfollow a user, vote or downvote posts, and save posts for future viewing.
+
+
+This project is the last of five projects that need to be completed to receive a diploma in Software Development from The Code Institute.
 
 A live version of this API will be found here: https://petfriends-api.herokuapp.com/
 
@@ -27,7 +29,7 @@ Test Account:
     * [Manual Testing](#manual-testing)
 * [Technologies Used](#technologies-used)
     * [Languages](#languages)
-    * [Libraries, Frameworks and Programs](#libraries-frameworks-and-programs)
+    * [Libraries, Frameworks, and Programs](#libraries-frameworks-and-programs)
 * [Bugs](#bugs)
     * [Unresolved](#unresolved)
 * [Project Setup](#project-setup)
@@ -75,7 +77,7 @@ IMAGE
 
 ### **Validators**
 
-- All code passes through the built-in package, similar to PEP8 checker, and was continuously checked through out production of this API.
+- All code passes through the built-in package, similar to PEP8 checker, and was continuously checked throughout the production of this API.
 
 ### **Manual Testing**
 
@@ -120,7 +122,7 @@ IMAGE
 - Django
 - Django Rest Framework
 
-### **Libraries, Frameworks and Programs**
+### **Libraries, Frameworks, and Programs**
 
 - Cloudinary Storage
 - Django rest auth
@@ -133,7 +135,7 @@ IMAGE
 ## **Bugs**
 ### **Unresolved**
 
-- As I used the very helpful Code Institute walkthrough as a guide and had fellow student's posts on the Slack forum, any issue I came across was quickly resolved. And nothing major to report or that still exists.
+- As I used the very helpful Code Institute walkthrough as a guide and had fellow students' posts on the Slack forum, any issue I came across was quickly resolved. And nothing major to report or that still exists.
 
 ## **Project Setup**
 
@@ -141,8 +143,8 @@ IMAGE
 * Run the command pip3 install 'django<4' in the terminal to install Django.
 * Run the command django-admin startproject my_api . in the terminal.
 * Run the command pip install django-cloudinary-storage in the terminal to install Cloudinary Storage.
-* Run the command pip install Pillow - this library adds image processing capabilities we need for this project.
-* Once these dependencies are installed we need to add them into the "Installed apps" section in settings.py.
+* Run the command pip install Pillow - this library adds the image processing capabilities we need for this project.
+* Once these dependencies are installed we need to add them to the "Installed apps" section in settings.py.
     * Note the placement and terms used for this input into installed apps:
 
         ```
@@ -151,8 +153,8 @@ IMAGE
         'cloudinary',
         ```
 
-* Create env.py file in the top directory.
-    * Inside the env.py file, import the os module and set up the os.environ with the cloudinary URL you can retrieve from the account you've set up.
+* Create an env.py file in the top directory.
+    * Inside the env.py file, import the os module and set up the os.environ with the Cloudinary URL you can retrieve from the account you've set up.
 * In the settings.py file, set up a variable called "CLOUDINARY_STORAGE" and use the environment variable used to set up in the env.py file to declare this value.
 * Next, define the setting called "MEDIA_URL" and set it to "/media/" so the settings know where to store our image files.
 * Finally, define a variable called "DEFAULT_FILE_STORAGE" and set it to "MediaCloudinaryStorage".
@@ -160,8 +162,8 @@ IMAGE
 
 ## **Deployment**
 
-First step of deployment is setting up the JWT tokens:
-* Firstly install the package in the terminal window, using the command: 
+The first step of deployment is setting up the JWT tokens:
+* First install the package in the terminal window, using the command: 
     
     *pip install dj-rest-auth==2.1.9*
 * In the settings.py file add the following to the "Installed Apps" section.
@@ -170,7 +172,7 @@ First step of deployment is setting up the JWT tokens:
 
     *'dj_rest_auth',*
 
-* Next, add the following urls to the urlpatterns list:
+* Next, add the following URLs to the urlpatterns list:
 
     *path('dj-rest-auth/', include('dj_rest_auth.urls')),*
 
@@ -178,11 +180,11 @@ First step of deployment is setting up the JWT tokens:
 
     *python manage.py migrate*
 
-* Next we want to add the feature to enable registration of users. Type the following into the terminal:
+* Next we want to add the feature to enable the registration of users. Type the following into the terminal:
 
     *pip install 'dj-rest-auth[with_social]'*
 
-* Add the following into the "Installed Apps" section in the settings.py file:
+* Add the following to the "Installed Apps" section in the settings.py file:
 
     ```
     'django.contrib.sites',
@@ -197,7 +199,7 @@ First step of deployment is setting up the JWT tokens:
     *SITE_ID = 1*
 
 
-* Next add the registration urls to the urlpatterns list, as follows:
+* Next add the registration URLs to the urlpatterns list, as follows:
 
     *path('dj-rest-auth/registration/',* 
 
@@ -226,7 +228,7 @@ First step of deployment is setting up the JWT tokens:
 
     *REST_USE_JWT = True*
 
-* To ensure tokens sent over HTTPS only, add the following:
+* To ensure tokens are sent over HTTPS only, add the following:
 
     *JWT_AUTH_COOKIE = 'my-app-auth'*
 
@@ -272,7 +274,7 @@ First step of deployment is setting up the JWT tokens:
 
 
 ### **Adding the root route:**
-* Create a views.py file in the api folder. Set up the imports in the views.py file:
+* Create a views.py file in the API folder. Set up the imports in the views.py file:
 
     *from rest_framework.decorators import api_view*
 
@@ -289,7 +291,7 @@ First step of deployment is setting up the JWT tokens:
 
     *from .views import root_route*
 
-* Add the url to urlpatterns list:
+* Add the URL to urlpatterns list:
 
     ```
     urlpatterns = [
@@ -311,7 +313,7 @@ First step of deployment is setting up the JWT tokens:
 
 ### **Adding Pagination**
 
-* In the settings.py file, set JSON Renderer if Dev environment is not present. Placed below, but separate to, the REST_FRAMEWORK list:
+* In the settings.py file, set JSON Renderer if Dev environment is not present. Placed below, but separate from, the REST_FRAMEWORK list:
 
     ```
     REST_FRAMEWORK = {
@@ -326,7 +328,7 @@ First step of deployment is setting up the JWT tokens:
 
 ### **Date and time formatting - General Formatting:**
 
-* In the settings.py file, format Date and time in REST_FRAMEWORK list:
+* In the settings.py file, format the Date and time in REST_FRAMEWORK list:
 
     ```
     REST_FRAMEWORK = {
@@ -356,7 +358,7 @@ First step of deployment is setting up the JWT tokens:
     def get_updated_at(self, obj):
         return naturaltime(obj.updated_at)
     ```
-* Next add, commit and push the new additions.
+* Next add, commit, and push the new additions.
 
 ### **Create Heroku App with Heroku PostGres**
 
@@ -378,11 +380,11 @@ First step of deployment is setting up the JWT tokens:
 
 ### **In heroku.com**
 
-* Open your App in Heroku, go to the settings tab and click "Reveal config vars".
+* Open your App in Heroku, go to the settings tab, and click "Reveal config vars".
 
-* Add a Config Var called DATABASE_URL: The value should be the ElephantSQL database url.
+* Add a Config Var called DATABASE_URL: The value should be the ElephantSQL database URL.
 
-### **Install and configure extra libraries, connect to your database:**
+### **Install and configure extra libraries and connect to your database:**
 
 * Install dj_database_url by typing in the command terminal window:
 
@@ -457,7 +459,7 @@ First step of deployment is setting up the JWT tokens:
 
     ```
 
-* Allow Cookies and allow front end app and api be deployed to different platforms:
+* Allow Cookies and allow front end app and API be deployed to different platforms:
 
     *CORS_ALLOW_CREDENTIALS = True*
     *JWT_AUTH_SAMESITE = 'None'*
@@ -488,7 +490,7 @@ First step of deployment is setting up the JWT tokens:
 
 * Back in Heroku in the deploy tab: Select the Deployment Method (GitHub), select the project repository name from Github, and connect. Next in the Manual deploy section, choose the Master Branch, then click Deploy Branch.
 
-* Once Complete, click "Open App" to view.
+* Once complete, click "Open App" to view.
 
 ## **Credits**
 
@@ -504,7 +506,7 @@ it served as a major help in creating this API.
 
 ### **Acknowledgments**
 - My mentor at Code Institute - Martina Terlevic.
-- Keiron Chaudhry, a fellow student and great support!
+- Keiron Chaudhry, a fellow student, and great support!
 
 ### **Media**
 - The media for this API consists of the default images, sourced through google and uploaded on Cloudinary.
