@@ -17,8 +17,6 @@ A live version of this API will be found here: https://petfriends-api.herokuapp.
 * FrontEnd Repo - https://github.com/JodyMurray/petfriends.git
 
 
-Test Account:
-
 ## **Table of Contents** ##
 
 * [Database Schema](#database-schema)
@@ -27,6 +25,7 @@ Test Account:
     * [Unit Testing](#unit-testing)
     * [Validators](#validators)
     * [Manual Testing](#manual-testing)
+    * [Automated Testing](#automated-testing)
 * [Technologies Used](#technologies-used)
     * [Languages](#languages)
     * [Libraries, Frameworks, and Programs](#libraries-frameworks-and-programs)
@@ -113,6 +112,15 @@ IMAGE
 | /vote/:id/ | ✅ |
 | /downvote/ | ✅ |
 | /downvote/:id/ | ✅ |
+
+### **Automated testing**
+Coverage testing report can be seen in images below:
+
+![screenshot](documentation/coverage1.png)
+![screenshot](documentation/coverage2.png)
+![screenshot](documentation/coverage3.png)
+
+
 
 ## **Technologies Used**
 
