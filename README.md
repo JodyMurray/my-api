@@ -52,10 +52,6 @@ IMAGE
 
 ## **Testing**
 
-### **Validators**
-
-- All code passes through the built-in package, similar to PEP8 checker, and was continuously checked through out production of this API.
-
 ### **Unit Testing**
 #### **Posts List View testing:**
 - These tests were possible thanks to the guide of the Moments walkthrough.
@@ -76,6 +72,10 @@ IMAGE
 - All tests passed by using the command:
  
     *python manage.py test*
+
+### **Validators**
+
+- All code passes through the built-in package, similar to PEP8 checker, and was continuously checked through out production of this API.
 
 ### **Manual Testing**
 
