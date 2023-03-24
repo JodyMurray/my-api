@@ -1,4 +1,4 @@
-# **PetFriends - API**
+# **PetFriends-API**
 
 This is a content-sharing platform for your pets, any pet can sign up! 
 The site includes registration and sign-up, you can add posts, reply to posts, follow or unfollow a user, vote or downvote posts, and save posts for future viewing.
@@ -35,7 +35,7 @@ Test Account:
 * [Project Setup](#project-setup)
 * [Deployment](#deployment)
 * [Credits](#credits)
-    * [Credits](#credits)
+    * [Sources](#sources)
     * [Acknowledgments](#acknowledgments)
     * [Media](#media)
 
@@ -494,7 +494,7 @@ The first step of deployment is setting up the JWT tokens:
 
 ## **Credits**
 
-### **Credits**
+### **Sources**
 
 - The DRF API walkthrough from Code Institue was used as a guide for this project, 
 it served as a major help in creating this API.
@@ -502,6 +502,7 @@ it served as a major help in creating this API.
 - [Stack Overflow](https://stackoverflow.com/)
 - [GeeksForGeeks](https://www.geeksforgeeks.org/)
 - [Slack](https://www.slack.com/) - for helpful tips from fellow students!
+- [Grammarly](https://app.grammarly.com/) - for spell checking the readme and about page.
 
 
 ### **Acknowledgments**
@@ -511,3 +512,7 @@ it served as a major help in creating this API.
 ### **Media**
 - The media for this API consists of the default images, sourced through google and uploaded on Cloudinary.
 
+
+Thank you!
+
+[Back to top](#petfriends-api)
