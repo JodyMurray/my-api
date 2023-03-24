@@ -44,7 +44,8 @@ A live version of this API will be found here: https://petfriends-api.herokuapp.
 
 ## **Database Schema**
 
-IMAGE
+![screenshot](documentation/DatabaseSchema.png)
+
 
 ## **User Stories**
 
