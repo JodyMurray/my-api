@@ -100,19 +100,19 @@ A live version of this API will be found here: https://petfriends-api.herokuapp.
 | root | ✅ |
 | /profiles/ | ✅ |
 | /profiles/:id/ | ✅ |
-| /post/ | ✅ |
-| /post/:id/ | ✅ |
-| /post/create/ | ✅ |
+| /posts/ | ✅ |
+| /posts/:id/ | ✅ |
+| /posts/create/ | ✅ |
 | /reply/ | ✅ |
 | /reply/:id | ✅ |
 | /followers/ | ✅ |
 | /followers/:id/ | ✅ |
 | /saved/ | ✅ |
 | /saved/:id/ | ✅ |
-| /vote/ | ✅ |
-| /vote/:id/ | ✅ |
-| /downvote/ | ✅ |
-| /downvote/:id/ | ✅ |
+| /votes/ | ✅ |
+| /votes/:id/ | ✅ |
+| /downvotes/ | ✅ |
+| /downvotes/:id/ | ✅ |
 
 ### **Automated testing**
 Coverage testing report can be seen in images below:
